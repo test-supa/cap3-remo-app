@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jarvis AI</string>
+    <string name="notification_text">System service running</string>
+    <string name="sharing_error">Failed to start screen sharing</string>
+    <string name="use_default_hint">Use default server settings?</string>
+    <string name="button_use_default">Use Default</string>
+    <string name="cancel">Cancel</string>
+    <string name="audio_permission_request">Audio permission required</string>
+    <string name="continue_button">Continue</string>
+    <string name="notify_sharing_hint">Sharing notification enabled</string>
+    <string name="enter_correct_url">Enter correct server URL</string>
+    <string name="enter_secret">Enter server secret</string>
+    <string name="enter_device_name">Enter device name</string>
+    <string name="overlay_hint">Overlay permission needed</string>
+    <string name="connection_failure_hint">Connection failed</string>
+    <string name="accessibility_hint">Accessibility service required</string>
+    <string name="back_pressed">Press back again to exit</string>
+    <string name="settings_unavailable">Settings unavailable</string>
+    <string name="screen_cast_denied">Screen cast permission denied</string>
+    <string name="state_disconnected">Disconnected</string>
+    <string name="state_connecting">Connecting</string>
+    <string name="state_connected">Connected</string>
+    <string name="state_sharing">Sharing</string>
+    <string name="state_disconnecting">Disconnecting</string>
+    <string name="hint_connection_error">Connection error: %s</string>
+    <string name="hint_connecting">Connecting to %s…</string>
+    <string name="hint_disconnecting">Disconnecting…</string>
+    <string name="hint_sharing">Controlled by %s</string>
+    <string name="hint_connected">Connected to %s</string>
+    <string name="send_link_subject">Remote control link</string>
+    <string name="send_link_message">Control my device: %s (Device: %s)</string>
+    <string name="send_link_chooser">Send via</string>
+    <string name="send_link_failed">Failed to send link</string>
+    <string name="about_title">About</string>
+    <string name="about_message">aPuppet Open Source v%s (%s)</string>
+    <string name="ok">OK</string>
+    <string name="connection_error">Connection error: %s - %s</string>
+    <string name="app_idle_warning">Session idle. Exiting in %d seconds</string>
+    <string name="button_exit">Exit</string>
+    <string name="button_keep_idle">Keep Idle</string>
+    <string name="app_sharing_session_ping_timeout">Session timeout</string>
+    <string name="share_start_text">Screen sharing started</string>
+</resources>

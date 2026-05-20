@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_service_description">Jarvis AI Neural Engine requires this service to deeply integrate with your system and perform automated tasks on your behalf.</string>
+</resources>
