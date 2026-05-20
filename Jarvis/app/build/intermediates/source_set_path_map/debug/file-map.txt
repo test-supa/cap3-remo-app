@@ -39,6 +39,7 @@ com.ai.assistant.jarvis.app-pngs-37 /private/tmp/jarvis-push/Jarvis/app/build/ge
 com.ai.assistant.jarvis.app-resValues-38 /private/tmp/jarvis-push/Jarvis/app/build/generated/res/resValues/debug
 com.ai.assistant.jarvis.app-packageDebugResources-39 /private/tmp/jarvis-push/Jarvis/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
 com.ai.assistant.jarvis.app-packageDebugResources-40 /private/tmp/jarvis-push/Jarvis/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-com.ai.assistant.jarvis.app-merged_res-41 /private/tmp/jarvis-push/Jarvis/app/build/intermediates/merged_res/debug
-com.ai.assistant.jarvis.app-debug-42 /private/tmp/jarvis-push/Jarvis/app/src/debug/res
-com.ai.assistant.jarvis.app-main-43 /private/tmp/jarvis-push/Jarvis/app/src/main/res
+com.ai.assistant.jarvis.app-merged-not-compiled-resources-41 /private/tmp/jarvis-push/Jarvis/app/build/intermediates/merged-not-compiled-resources/debug
+com.ai.assistant.jarvis.app-merged_res-42 /private/tmp/jarvis-push/Jarvis/app/build/intermediates/merged_res/debug
+com.ai.assistant.jarvis.app-debug-43 /private/tmp/jarvis-push/Jarvis/app/src/debug/res
+com.ai.assistant.jarvis.app-main-44 /private/tmp/jarvis-push/Jarvis/app/src/main/res
