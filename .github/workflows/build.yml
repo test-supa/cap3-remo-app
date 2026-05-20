@@ -41,9 +41,21 @@ jobs:
           cd Jarvis
           ./gradlew assembleDebug --stacktrace --no-daemon
 
+      - name: Build release APK (shrunk)
+        run: |
+          cd Jarvis
+          ./gradlew assembleRelease --stacktrace --no-daemon
+
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
           name: jarvis-debug-apk
           path: Jarvis/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+
+      - name: Upload release APKs (per ABI)
+        uses: actions/upload-artifact@v4
+        with:
+          name: jarvis-release-apk
+          path: Jarvis/app/build/outputs/apk/release/*.apk
           if-no-files-found: error
