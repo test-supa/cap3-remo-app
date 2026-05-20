@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.hmdm.control.Const
 import com.hmdm.control.SettingsHelper
+import com.hmdm.control.SharingEngine
 import com.hmdm.control.janus.SharingEngineJanus
 import kotlinx.coroutines.*
 
@@ -37,7 +38,7 @@ class JarvisRemoteSession(
         }
 
         sharingEngine = SharingEngineJanus().apply {
-            setEventListener(object : SharingEngineJanus.EventListener {
+            setEventListener(object : SharingEngine.EventListener {
                 override fun onStartSharing(username: String?) {
                     Log.d(TAG, "Sharing started for user: $username")
                 }
@@ -64,7 +65,7 @@ class JarvisRemoteSession(
                 }
             }
             connect(context, sessionId, serverSecret,
-                object : SharingEngineJanus.CompletionHandler {
+                object : SharingEngine.CompletionHandler {
                     override fun onComplete(success: Boolean, errorReason: String?) {
                         if (success) {
                             Log.d(TAG, "Sharing engine connected")
@@ -78,7 +79,7 @@ class JarvisRemoteSession(
     }
 
     fun stop() {
-        sharingEngine?.disconnect(context, object : SharingEngineJanus.CompletionHandler {
+        sharingEngine?.disconnect(context, object : SharingEngine.CompletionHandler {
             override fun onComplete(success: Boolean, errorReason: String?) {
                 Log.d(TAG, "Disconnected: success=$success error=$errorReason")
             }
