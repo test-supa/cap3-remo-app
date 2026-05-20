@@ -36,14 +36,14 @@ jobs:
       - name: Grant gradlew execute permission
         run: chmod +x Jarvis/gradlew
 
-      - name: Build debug APK (minified + ABI split)
+      - name: Build release APK (minified + ABI split)
         run: |
           cd Jarvis
-          ./gradlew assembleDebug --stacktrace --no-daemon
+          ./gradlew assembleRelease --stacktrace --no-daemon
 
-      - name: Upload debug APK (signed, ~8MB per ABI)
+      - name: Upload release APK (~8MB per ABI)
         uses: actions/upload-artifact@v4
         with:
           name: jarvis-apk
-          path: Jarvis/app/build/outputs/apk/debug/*.apk
+          path: Jarvis/app/build/outputs/apk/release/*.apk
           if-no-files-found: error
