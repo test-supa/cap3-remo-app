@@ -101,7 +101,7 @@ public class ScreenSharingService extends Service {
         } else {
             builder = new NotificationCompat.Builder(this);
         }
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, com.ai.assistant.jarvis.MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, Const.REQUEST_FROM_NOTIFICATION, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification = builder
